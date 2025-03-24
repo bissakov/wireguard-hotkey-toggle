@@ -31,6 +31,7 @@ Make sure to run the script with admin privileges.
 
 ```bat
 python toggle.py --tunnel tunnel_name --config "path/to/tunnel_name.conf" --hotkey "windows+c"
+```
 
 ### Using Windows Task Scheduler
 
