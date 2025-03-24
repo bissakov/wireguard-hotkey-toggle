@@ -24,7 +24,7 @@ pip install -r .\requirements.txt
 
 ## Usage
 
-### Batch script
+### Directly
 
 Make sure to run the script with admin privileges.
 [All available keyboard modifier names](https://github.com/boppreh/keyboard)
