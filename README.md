@@ -35,6 +35,12 @@ python toggle.py --tunnel tunnel_name --config "path/to/tunnel_name.conf" --hotk
 
 ### Using Windows Task Scheduler
 
+1. Create Task
+2. General tab - Give a name and tick privileges box
+3. Triggers tab - Create a trigger, change trigger type, select a specific user and give it a delay (optional)
+4. Actions tab - Create an action, choose a type, fill program and argument fields
+5. Press OK
+
 ![Create Task](assets/scheduler_0.png)
 ![General tab - Give a name and tick privileges box](assets/scheduler_1.png)
 ![Triggers tab - Create a trigger, change trigger type, select a specific user and give it a delay (optional)](assets/scheduler_2.png)
