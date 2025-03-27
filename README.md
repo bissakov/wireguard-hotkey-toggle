@@ -30,7 +30,7 @@ Make sure to run the script with admin privileges.
 [All available keyboard modifier names](https://github.com/boppreh/keyboard)
 
 ```bat
-python toggle.py --tunnel tunnel_name --config "path/to/tunnel_name.conf" --hotkey "windows+c"
+python toggle.py --tunnel tunnel_name --config "path/to/tunnel_name.conf" --hotkey "windows+c --torrent_check --verbose"
 ```
 
 ### Using Windows Task Scheduler
