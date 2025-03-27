@@ -12,7 +12,7 @@ if not ctypes.windll.shell32.IsUserAnAdmin():
 
 def setup_logger(verbose: bool) -> logging.Logger:
     logger = logging.getLogger("VPNToggle")
-    logger.setLevel(logging.DEBUG if verbose else logging.CRITICAL)
+    logger.setLevel(logging.DEBUG if verbose else logging.ERROR)
 
     formatter = logging.Formatter(
         "[%(asctime)s] %(levelname)s: %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
