@@ -33,6 +33,22 @@ Make sure to run the script with admin privileges.
 python toggle.py --tunnel tunnel_name --config "path/to/tunnel_name.conf" --hotkey "windows+c --torrent_check --verbose"
 ```
 
+```
+usage: toggle.py [-h] [--verbose] --tunnel TUNNEL --config CONFIG [--hotkey HOTKEY] [--torrent_check]
+
+Toggle a WireGuard VPN tunnel with optional torrent application check.
+
+options:
+  -h, --help       show this help message and exit
+  --verbose        Enable verbose logging to console and file
+  --tunnel TUNNEL  Name of the WireGuard tunnel
+  --config CONFIG  Path to the WireGuard configuration file
+  --hotkey HOTKEY  Keyboard shortcut to toggle VPN
+  --torrent_check  Enable torrent check before turning on VPN
+
+If --torrent_check is not provided, the torrent check is skipped. The script requires administrative privileges.
+```
+
 ### Using Windows Task Scheduler
 
 1. Create Task

@@ -6,9 +6,6 @@ import sys
 
 import keyboard
 
-if not ctypes.windll.shell32.IsUserAnAdmin():
-    sys.exit("Script must be run as administrator.")
-
 
 def setup_logger(verbose: bool) -> logging.Logger:
     logger = logging.getLogger("VPNToggle")
@@ -95,21 +92,30 @@ def toggle_vpn(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Toggle a WireGuard VPN tunnel with optional torrent application check.",
+        epilog="If --torrent_check is not provided, the torrent check is skipped. "
+        "The script requires administrative privileges.",
+    )
     parser.add_argument(
         "--verbose",
         action="store_true",
         help="Enable verbose logging to console and file",
     )
-    parser.add_argument("--tunnel", help="Name of the WireGuard tunnel")
+
     parser.add_argument(
-        "--config", help="Path to the WireGuard configuration file"
+        "--tunnel", help="Name of the WireGuard tunnel", required=True
+    )
+    parser.add_argument(
+        "--config",
+        help="Path to the WireGuard configuration file",
+        required=True,
     )
     parser.add_argument("--hotkey", help="Keyboard shortcut to toggle VPN")
     parser.add_argument(
         "--torrent_check",
         action="store_true",
-        help="Disable torrent check before turning on VPN",
+        help="Enable torrent check before turning on VPN",
     )
 
     args = parser.parse_args()
@@ -126,6 +132,10 @@ def main() -> None:
         logger.info("Torrent process check ON.")
     else:
         logger.info("Torrent process check OFF.")
+
+    if not ctypes.windll.shell32.IsUserAnAdmin():
+        logger.error("Script must be run as administrator.")
+        sys.exit("Script must be run as administrator.")
 
     try:
         if args.hotkey:
